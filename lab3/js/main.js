@@ -87,6 +87,9 @@ function createUser(event) {
             let name = row.insertCell();
             name.textContent = user.name;
 
+            let price = row.insertCell();
+            price.textContent = user.price;
+
             let image = row.insertCell();
             let img = document.createElement('img');
             img.src = user.image;
@@ -106,60 +109,3 @@ function createUser(event) {
             console.log(response);
         });
 }
-
-
-
-// ---------------------------Modal--------------------------------
-
-let modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-let btn = document.getElementById("trigger");
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-// ----------------------------------fetch API------------------------------------------------
-/* let response = await fetch('https://5dcb60b034d54a0014314e8d.mockapi.io/users', {
-    method: 'POST',
-    body: userData
-});
-
-let result = await response.json();
-document.querySelector('.close').click();
-user = result;
-let row = tbody.insertRow();
-let id = row.insertCell();
-id.textContent = user.id;
-
-let name = row.insertCell();
-name.textContent = user.name;
-
-let image = row.insertCell();
-let img = document.createElement('img');
-img.src = user.image;
-image.appendChild(img);
-
-let remove = row.insertCell();
-let a = document.createElement('a');
-a.textContent = 'Remove';
-remove.appendChild(a);
-a.removeId = user.id;
-a.addEventListener('click', deleteUser) */
