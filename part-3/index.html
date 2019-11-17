@@ -1,27 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js" defer></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <script src="./js/main.js"></script>
-  
-  <table id="">
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-    </tr>
+    <table>
+        <caption>Users</caption>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Avatar</th>
+            <th id="trigger"><a>Create</a></th>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-    <tr>
-      <td id="userList"></td>
-      <td id="genderList"></td>
-    </tr>
-</table>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <h3>My form</h3>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="hao">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
 
+    </div>
 </body>
+
 </html>
