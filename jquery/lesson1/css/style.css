@@ -1,0 +1,23 @@
+body {
+    background: #fff
+  }
+  .info {
+    width: 200px;
+    margin: 80px auto 20px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 32px
+  }
+  .info span {
+    color: #000;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  .image {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    z-index: -1
+  }
+  
