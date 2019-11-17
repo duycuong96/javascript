@@ -1,5 +1,5 @@
 let tbody = document.querySelector('tbody');
-axios.defaults.baseURL = 'http://5dcf7e2d75f9360014c268b9.mockapi.io/';
+axios.defaults.baseURL = 'http://5dcf7e2d75f9360014c268b9.mockapi.io';
 
 axios.get('/product')
     .then(function (response) {
