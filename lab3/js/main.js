@@ -14,32 +14,34 @@ axios.get('/product')
     .finally(function () {
         // always executed
     });
+function get(user){
+    let row = tbody.insertRow();
+    
+    let id = row.insertCell();
+    id.textContent = user.id;
 
+    let name = row.insertCell();
+    name.textContent = user.name;
+
+    let price = row.insertCell();
+    price.textContent = user.price;
+
+
+    let image = row.insertCell();
+    let img = document.createElement('img');
+    img.src = user.image;
+    image.appendChild(img);
+
+    let remove = row.insertCell();
+    let a = document.createElement('a');
+    a.textContent = 'Remove';
+    remove.appendChild(a);
+    a.removeId = user.id;
+    a.addEventListener('click', deleteUser)
+}
 function showProducts(users) {
-        users.forEach(user => {
-            let row = tbody.insertRow();
-    
-            let id = row.insertCell();
-            id.textContent = user.id;
-    
-            let name = row.insertCell();
-            name.textContent = user.name;
-    
-            let price = row.insertCell();
-            price.textContent = user.price;
-    
-    
-            let image = row.insertCell();
-            let img = document.createElement('img');
-            img.src = user.image;
-            image.appendChild(img);
-    
-            let remove = row.insertCell();
-            let a = document.createElement('a');
-            a.textContent = 'Remove';
-            remove.appendChild(a);
-            a.removeId = user.id;
-            a.addEventListener('click', deleteUser)
+        users.map(user => {
+           get(user);
         });
     }
 
