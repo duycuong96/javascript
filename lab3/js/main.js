@@ -82,6 +82,7 @@ function createUser(event) {
             //handle success
             document.querySelector('.close').click();
             user = response.data;
+            
             let row = tbody.insertRow();
             let id = row.insertCell();
             id.textContent = user.id;
