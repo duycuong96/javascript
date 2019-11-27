@@ -9,61 +9,82 @@
     <title>Ass</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/flexslider.css">
+
 </head>
 
 <body>
-    <!--    Header website    -->
-    <header class="main-header">
-        <div class="logo">
-            <a href="#">
-                <img src="http://i.imgur.com/RhNJ7II.png" alt="vaco-logo">
-            </a>
+    <div class="container">
+        <!--    Header website    -->
+        <div class="main-header">
+            <div class="logo">
+                <a href="#">
+                    <img src="http://i.imgur.com/RhNJ7II.png" alt="vaco-logo">
+                </a>
+            </div>
+            <nav class="menu-header">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <h3><a href="#">Home</a></h3>
+                    </li>
+                    <li class="menu-item">
+                        <h3><a href="#">Giới thiệu</a></h3>
+                    </li>
+                    <li class="menu-item">
+                        <h3><a href="#">Danh sách sản phẩm</a></h3>
+                    </li>
+                    <li class="menu-item">
+                        <h3><a href="#">Hỏi đáp</a></h3>
+                    </li>
+                    <li class="contact">
+                        <h3><a href="#">Liên hệ</a></h3>
+                    </li>
+                </ul>
+                <a href="#" id="pull"></a>
+            </nav>
         </div>
-        <nav class="menu-header">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <h3><a href="#">Home</a></h3>
-                </li>
-                <li class="menu-item">
-                    <h3><a href="#">Giới thiệu</a></h3>
-                </li>
-                <li class="menu-item">
-                    <h3><a href="#">Danh sách sản phẩm</a></h3>
-                </li>
-                <li class="menu-item">
-                    <h3><a href="#">Hỏi đáp</a></h3>
-                </li>
-                <li class="menu-item">
-                    <h3><a href="#">Liên hệ</a></h3>
-                </li>
-                <li class="contact">
-                    <h3><a href="#">Liên hệ</a></h3>
-                </li>
-            </ul>
-            <a href="#" id="pull"></a>
-        </nav>
-    </header>
-    <!-- Place somewhere in the <body> of your page -->
-    <div class="banner">
-        <div class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1kys4nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
-                </li>
-                <li>
-                    <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1eXc2n5_1gK0jSZFqXXcpaXXa.jpg_1200x1200Q100.jpg_.webp" />
-                </li>
-                <li>
-                    <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1R7M4n8r0gK0jSZFnXXbRRXXa.jpg_1200x1200.jpg" />
-                </li>
-                <li>
-                    <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1bV34nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
-                </li>
-            </ul>
+        <!-- Slider -->
+        <div class="banner">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1kys4nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
+                    </li>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1eXc2n5_1gK0jSZFqXXcpaXXa.jpg_1200x1200Q100.jpg_.webp" />
+                    </li>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1R7M4n8r0gK0jSZFnXXbRRXXa.jpg_1200x1200.jpg" />
+                    </li>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1bV34nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="title">
+                <h1 class="text-center">Sản phẩm mới nhất</h1>
+            </div>
+            <div class="list-product">
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+                <div class="product"></div>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/jquery.flexslider.js"></script>
+    <script src="./js/axios.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

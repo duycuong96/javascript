@@ -1,5 +1,6 @@
-$(function() {
-    var pull        = $('#pull');
+// header
+$(document).ready(function(){
+  var pull        = $('#pull');
         menu        = $('nav ul');
         menuHeight  = menu.height();
 
@@ -8,6 +9,7 @@ $(function() {
         menu.slideToggle();
     });
 });
+
 $(window).resize(function(){
     var w = $(window).width();
     if(w > 980 && menu.is(':hidden')) {
@@ -15,9 +17,10 @@ $(window).resize(function(){
     }
 });
 
-// Can also be used with $(document).ready()
+// slider
 $(window).load(function() {
     $('.flexslider').flexslider({
       animation: "slide"
     });
   });
+
