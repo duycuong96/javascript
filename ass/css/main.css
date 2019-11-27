@@ -214,7 +214,16 @@ a {
     .banner h2{
         font-size: 17px;
     }
+    .list-product{
     
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        grid-template-rows: 200px 200px;
+    }
+    .product{
+        background: #1b6698;
+    }
    
     
 }
