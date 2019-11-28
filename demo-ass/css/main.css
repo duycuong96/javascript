@@ -25,13 +25,7 @@ a {
     height: auto;
     position: relative;
 }
-.logo {
-    width: 235px;
-    height: 37px;
-    float: left;
-    letter-spacing: 2px;
-    padding-bottom: 5px;
-}
+
 .logo img {
     float: left;
     margin-right: 10px;

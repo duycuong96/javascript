@@ -1,0 +1,40 @@
+/*======== recruitment ======*/
+.recruitment{
+    clear: both;
+    background: url('https://duycuong96.github.io/car-service/assets/img/banner/banner-4.jpg') no-repeat top center;
+    padding-bottom: 3.3rem;
+}
+.recruitment-heading{
+    text-align: center;
+    padding: 4.6rem 0 3.1rem 0;
+}
+.recruitment-heading__title{
+    color: #fff;
+    margin: 0 0 1.1rem 0;
+    padding: 0;
+}
+.recruitment-heading__desc{
+    color: #fff;
+}
+.recruitment-form{
+    background: #EEF2F6;
+    border-radius: 10px;
+    padding: 3.6rem 15px 3rem 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.recruitment-form__input{
+    border-radius: 8px;
+    border: 1px solid #BFBFCC;
+    height: calc(1.7em + 1rem + 2px);
+}
+.recruitment-form .form-group{
+    margin-bottom: 1.3rem;
+}
+.recruitment-form{
+    margin: 0;
+    padding: 3.6rem 4rem 3rem 4rem;
+}
+.recruitment{
+    background-size: contain; 
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>CiOne.Vn eLearning</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h4>Giỏ hàng</h4>
+    <div class="shop-cart">
+      <!-- Nơi sẽ chứa thông tin sản phẩm -->
+    </div>
+    <div id="template" style="display:none;">
+        <div class="item-row">
+            <div class="col-1">
+                <img alt="{{alt}}" src="{{img}}">
+            </div>
+            <div class="col-2">
+                <h4>{{title}}</h4>Bìa Mềm - Tác giả:<strong>{{author}}</strong><br/>
+                <p>Sách có thể bọc bằng BookCare</p>
+                <a id="del" href="#del1">Xóa</a> | <a id="bookingLater" href="#keepbooking1">Để dành mua sau</a>   </div>
+            <div class="col-3">
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
