@@ -1,40 +1,70 @@
-/*======== recruitment ======*/
-.recruitment{
+/*======== contact ======*/
+.contact{
     clear: both;
-    background: url('https://duycuong96.github.io/car-service/assets/img/banner/banner-4.jpg') no-repeat top center;
-    padding-bottom: 3.3rem;
+    background-color: transparent;
+    background-image: linear-gradient(140deg,#2b5fe7 0%,#15095e 68%);
+    padding-bottom: 6rem;
 }
-.recruitment-heading{
+.contact-heading{
     text-align: center;
     padding: 4.6rem 0 3.1rem 0;
 }
-.recruitment-heading__title{
+.contact-heading__title{
     color: #fff;
     margin: 0 0 1.1rem 0;
     padding: 0;
 }
-.recruitment-heading__desc{
+.contact-heading__desc{
     color: #fff;
 }
-.recruitment-form{
+.contact-form{
     background: #EEF2F6;
     border-radius: 10px;
     padding: 3.6rem 15px 3rem 15px;
     margin-left: -15px;
     margin-right: -15px;
 }
-.recruitment-form__input{
+.contact-form__input{
     border-radius: 8px;
     border: 1px solid #BFBFCC;
     height: calc(1.7em + 1rem + 2px);
 }
-.recruitment-form .form-group{
+.contact-form .form-group{
     margin-bottom: 1.3rem;
 }
-.recruitment-form{
+.contact-form{
     margin: 0;
     padding: 3.6rem 4rem 3rem 4rem;
 }
-.recruitment{
+.contact{
     background-size: contain; 
 }
+
+.form-tooltip {
+    border-radius: 5px;
+    display: block;
+    font-size: 1.3em;
+    text-align: center;
+    position: absolute;
+    background: #2F558E;
+    left: 105%;
+    top: 25px;
+    width: 160px;
+    padding: 7px 10px;
+    color: #fff;
+  }
+ .form-tooltip:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color: #2F558E;
+    border-width: 8px;
+    margin-top: -8px;
+  }
+

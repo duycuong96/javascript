@@ -36,6 +36,7 @@ a {
 .logo img {
     float: left;
     margin-right: 10px;
+    width: 200px;
 }
 /* .logo h1 {
     display: inline-block;
@@ -61,27 +62,6 @@ a {
 #pull {
     display: none;
 }
-.contact{ 
-    margin-right: 0px;
-}
-.contact a {
-    display: inline-block;
-    background-color: #3498db;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    padding: 5px 15px;
-    color: #fff;
-}
-.contact a:hover{
-    color: #3498db;
-    padding: 4px 14px;
-    background-color: #fff;
-    border: 1px solid #3498db;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-}
 .menu-list a{    
     font-weight: normal;
     font-size: 16px;
@@ -92,7 +72,8 @@ a {
     color: black;
 }
 .menu-item a:hover{
-    border-bottom:  2px solid #3498db;
+    text-decoration: none;
+    border-bottom:  2px solid #2b5fe7;
 }
 .main-header h1 {
     clear: both;
@@ -154,8 +135,6 @@ a {
     margin-bottom: 1.6rem;
 }
 
-
-
 @media only screen and (max-width : 992px){
     .main-header{
         width: 95%;
@@ -195,7 +174,7 @@ a {
         background: #1b6698;
         border-bottom: none;
     }
-    .contact a:hover{
+    .home-menu a:hover{
         color: #fff;
         padding: 5px 0;
         background: #1b6698;
@@ -211,11 +190,11 @@ a {
         padding: 5px 0;
         color: #fff;
     }
-    .contact {
+    .home-menu {
         border-bottom: none;
         margin-bottom: 25px!important;
     }
-    .contact a{
+    .home-menu a{
         border-radius: none;
         -moz-border-radius: none;
         -webkit-border-radius: none;
