@@ -4,56 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ass</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/flexslider.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/question.css">
+
+
 </head>
 
 <body>
-    <div class="container">
-        <!--    Header website    -->
-        <div class="main-header">
-            <div class="logo">
-                <a href="#">
-                    <img src="http://i.imgur.com/RhNJ7II.png" alt="vaco-logo">
-                </a>
+    <!--    Header website    -->
+    <header>
+        <div class="container">
+            <div class="main-header">
+                <div class="logo">
+                    <a href="#">
+                        <img src="https://www.gstcouncil.org/wp-content/uploads/logo-booking-com-png-booking-com-1020.png" alt="vaco-logo" width="">
+                    </a>
+                </div>
+                <nav class="menu-header">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <h3><a href="#">Home</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="#">Giới thiệu</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="#">Danh sách sản phẩm</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="#">Hỏi đáp</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="#">Liên hệ</a></h3>
+                        </li>
+                    </ul>
+                    <a href="#" id="pull"></a>
+                </nav>
             </div>
-            <nav class="menu-header">
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <h3><a href="#">Home</a></h3>
+        </div>
+    </header>
+    <!-- slider -->
+    <section class="banner">
+        <div class="container">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1kys4nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
                     </li>
-                    <li class="menu-item">
-                        <h3><a href="#">Giới thiệu</a></h3>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1eXc2n5_1gK0jSZFqXXcpaXXa.jpg_1200x1200Q100.jpg_.webp" />
                     </li>
-                    <li class="menu-item">
-                        <h3><a href="#">Danh sách sản phẩm</a></h3>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1R7M4n8r0gK0jSZFnXXbRRXXa.jpg_1200x1200.jpg" />
                     </li>
-                    <li class="menu-item">
-                        <h3><a href="#">Hỏi đáp</a></h3>
-                    </li>
-                    <li class="contact">
-                        <h3><a href="#">Liên hệ</a></h3>
+                    <li>
+                        <img class=""
+                            src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1bV34nYj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
                     </li>
                 </ul>
-                <a href="#" id="pull"></a>
-            </nav>
+            </div>
         </div>
-        <!-- end header -->
-        <!-- banner -->
-        <div class="banner">
-                <img src="http://i.imgur.com/Ft1VQ9G.png" alt="background-banner">
-        </div>
-        <!-- form -->
-        <div class="product-detail">
-            
-        </div>
+    </section>
+    <!-- list products -->
+    <section class="products">
+        <div class="container">
+            <div class="section-heading products-heading">
+                <h2 class="section-heading__title products-heading__title">Sản phẩm mới nhất</h2>
+            </div>
+            <div class="section-body">
+                <div class="products-row">
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-4.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">Senior Automation <br />QA/Tester</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-5.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">VueJS Developer <br />All level</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-6.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">Digital Marketing <br />Executive</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-4.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">Senior Automation <br />QA/Tester</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-5.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">VueJS Developer <br />All level</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-6.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">Digital Marketing <br />Executive</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                    <div class="products-position">
+                        <div class="products-icon">
+                            <img src="img/icon/icon-7.svg" alt="">
+                        </div>
+                        <h4 class="products-position__name">React Native <br />Developer</h4>
+                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
 
-    </div>
+        </div>
+    </section>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/jquery.flexslider.js"></script>
+    <script src="./js/axios.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
