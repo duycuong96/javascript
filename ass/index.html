@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/flexslider.css">
     <link rel="stylesheet" href="./css/main.css">
 
@@ -23,7 +24,8 @@
             <div class="main-header">
                 <div class="logo">
                     <a href="#">
-                        <img src="https://www.gstcouncil.org/wp-content/uploads/logo-booking-com-png-booking-com-1020.png" alt="vaco-logo" width="">
+                        <img src="https://www.gstcouncil.org/wp-content/uploads/logo-booking-com-png-booking-com-1020.png"
+                            alt="vaco-logo" width="">
                     </a>
                 </div>
                 <nav class="menu-header">
@@ -38,11 +40,12 @@
                             <h3><a href="#">Danh sách sản phẩm</a></h3>
                         </li>
                         <li class="menu-item">
-                            <h3><a href="#">Hỏi đáp</a></h3>
-                        </li>
-                        <li class="menu-item">
                             <h3><a href="#">Liên hệ</a></h3>
                         </li>
+                        <li class="menu-item">
+                            <h3><a href="#">Giỏ hàng</a></h3>
+                        </li>
+                        
                     </ul>
                     <a href="#" id="pull"></a>
                 </nav>
@@ -82,91 +85,20 @@
             </div>
             <div class="section-body">
                 <div class="products-row">
+                    <!-- List products -->
+                </div>
+                <div id="product" style="display: none;">
                     <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-4.svg" alt="">
+                        <div class="products-image">
+                            <img class="products-image__img" src="{{image}}" alt="image">
                         </div>
-                        <h4 class="products-position__name">Senior Automation <br />QA/Tester</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-5.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">VueJS Developer <br />All level</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-6.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">Digital Marketing <br />Executive</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-4.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">Senior Automation <br />QA/Tester</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-5.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">VueJS Developer <br />All level</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-6.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">Digital Marketing <br />Executive</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
-                    </div>
-                    <div class="products-position">
-                        <div class="products-icon">
-                            <img src="img/icon/icon-7.svg" alt="">
-                        </div>
-                        <h4 class="products-position__name">React Native <br />Developer</h4>
-                        <a href="javascript: void(0)" class="btn btn-primary">Mua ngay</a>
+                        <h4 class="products-position__name">{{name}}</h4>
+                        <h2 class="products-position__price">{{price}} đ</h2>
+                    
+                        <button type="button" class="btn btn-primary addToCart" productid="{{id}}" >Mua ngay</button>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -176,8 +108,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/jquery.flexslider.js"></script>
+    <script src="./js/slider.js"></script>
     <script src="./js/axios.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/cart.js"></script>
+    <script>
+    $(document).ready(function(){
+    $('.addToCart').on('click', function(){
+        var proId = $(this).attr('productid');
+        console.log(proId);
+    });
+})
+    </script>
+
 </body>
 
 </html>
