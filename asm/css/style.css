@@ -308,8 +308,17 @@ a:hover{
 .contact{
     background-size: contain; 
 }
-
-
+/*  */
+.list-product{
+    padding: 3rem;
+}
+.product-list-row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    
+}
 
 
 /* === footer */

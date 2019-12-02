@@ -29,24 +29,24 @@ axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     });
 
 // get product
-axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?p=1&l=8')
+axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?page=1&limit=8&sortBy=createdAt&order=desc')
     .then(function (response) {
         // handle success
         const { data } = response;
         const listProduct = document.querySelector('.products-row');
         listProduct.innerHTML = data.map(product => {
             return `<div class="products-position">
-            <div class="products-image">
-                <img class="products-image__img" src="${product.image}" alt="">
-            </div>
-            <h3 class="products-position__name"  >${product.name}</h3>
-            <a href="product.html" class="btn btn-primary" onclick="createItem(${product.id})">Chi tiết sản phẩm</a>
-            <hr>
-            <div class="products-price" >
-                    <h2 class="text-left">${product.price}</h2>
-                    <h2 class="text-right"></i><i class="fa fa-shopping-cart"></i></h2>
-            </div>
-        </div>`;
+                        <div class="products-image">
+                            <img class="products-image__img" src="${product.image}" alt="">
+                        </div>
+                        <h3 class="products-position__name"  >${product.name}</h3>
+                        <a href="product.html" class="btn btn-primary" onclick="createItem(${product.id})">Chi tiết sản phẩm</a>
+                        <hr>
+                        <div class="products-price" >
+                            <h2 class="text-left">${product.price}</h2>
+                            <h2 class="text-right"></i><i class="fa fa-shopping-cart"></i></h2>
+                        </div>
+                    </div>`;
         }).join('');
     })
     .catch(function (error) {
@@ -97,26 +97,36 @@ function getProductDetail(){
 getProductDetail();
 
 // get product cart
-function getProductCart(){
-    let proid = localStorage.getItem("id");
-axios.get(`http://5dcf7e2d75f9360014c268b9.mockapi.io/product/${proid}`)
-.then(function (response) {
-    // handle success
-    const { data } = response;
-
-    const detailProductName = document.querySelector('.product-detail-name');
-    detailProductName.innerHTML = `<h3 class="title mb-3" id="">${data.name}</h3>`;
-
-
-})
-.catch(function (error) {
-    // handle error
-    console.log(error);
-})
-.finally(function () {
-    // always executed
-});
+function getListProduct(){
+    axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?sortBy=createdAt&order=desc')
+    .then(function (response) {
+        // handle success
+        const { data } = response;
+        const listProduct = document.querySelector('.product-list-row');
+        listProduct.innerHTML = data.map(product => {
+            return `<div class="products-position">
+                        <div class="products-image">
+                            <img class="products-image__img" src="${product.image}" alt="">
+                        </div>
+                        <h3 class="products-position__name"  >${product.name}</h3>
+                        <a href="product.html" class="btn btn-primary" onclick="createItem(${product.id})">Chi tiết sản phẩm</a>
+                        <hr>
+                        <div class="products-price" >
+                            <h2 class="text-left">${product.price}</h2>
+                            <h2 class="text-right"></i><i class="fa fa-shopping-cart"></i></h2>
+                        </div>
+                    </div>`;
+        }).join('');
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+    .finally(function () {
+        // always executed
+    });
 }
+getListProduct();
 
   
 
