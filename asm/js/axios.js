@@ -39,8 +39,8 @@ axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?page=1&limit=8&so
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  >${product.name}</h3>
-                        <a href="product.html" class="btn btn-primary" onclick="createItem(${product.id})">Chi tiết sản phẩm</a>
+                        <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
+                        
                         <hr>
                         <div class="products-price" >
                             <h2 class="text-left">${product.price}</h2>
@@ -108,8 +108,7 @@ function getListProduct(){
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  >${product.name}</h3>
-                        <a href="product.html" class="btn btn-primary" onclick="createItem(${product.id})">Chi tiết sản phẩm</a>
+                        <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
                         <hr>
                         <div class="products-price" >
                             <h2 class="text-left">${product.price}</h2>
