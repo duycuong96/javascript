@@ -51,29 +51,8 @@ $(document).ready(function () {
 
 // list products
 
-function renderProduct(product) {
-  let template = $("#product").html();
-  template = template.replace("{{id}}", product.id);
-  template = template.replace("{{name}}", product.name);
-  template = template.replace("{{price}}", product.price);
-  template = template.replace("{{image}}", product.image);
-  let shopCart = $('.products-row');
-  $(template).appendTo(shopCart);
-}
 
 
-function getProducts() {
-  let settings = {
-      url: "http://5dcf7e2d75f9360014c268b9.mockapi.io/product?page=1&limit=12",
-      dataType: "json",
-      success: function(data, textStatus, jqXHR) {
-          for (var product of data) {
-              renderProduct(product);
-          }
-      }
-  };
-  $.ajax(settings);
-}
 
-getProducts();
+
 

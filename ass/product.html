@@ -114,7 +114,7 @@
                     </div>
                     <hr>
                     <a href="" class="btn btn-lg btn-primary"> Mua ngay </a>
-                    <a href="" class="btn btn-lg btn-outline-primary">Thêm vào giỏ hàng</a>
+                    <button id="addToCart" href="" class="btn btn-lg btn-outline-primary">Thêm vào giỏ hàng</button>
                 </article>
             </div>
            </div>
@@ -156,6 +156,13 @@
     <script src="./js/axios.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+    $(document).ready(function(){
+  $('#addToCart').click(function(){
+      console.log("a");
+  });
+});
+    </script>
 </body>
 
 </html>

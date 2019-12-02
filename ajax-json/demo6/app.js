@@ -30,7 +30,7 @@ function renderProduct(product) {
 
 function getProducts() {
     var settings = {
-        url: "http://5dcf7e2d75f9360014c268b9.mockapi.io/product",
+        url: "http://5dcf7e2d75f9360014c268b9.mockapi.io/product/1",
         dataType: "json",
         success: function(data, textStatus, jqXHR) {
             for (var product of data) {

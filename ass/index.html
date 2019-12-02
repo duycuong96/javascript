@@ -45,7 +45,7 @@
                         <li class="menu-item">
                             <h3><a href="#">Giỏ hàng</a></h3>
                         </li>
-                        
+
                     </ul>
                     <a href="#" id="pull"></a>
                 </nav>
@@ -86,18 +86,18 @@
             <div class="section-body">
                 <div class="products-row">
                     <!-- List products -->
-                </div>
-                <div id="product" style="display: none;">
                     <div class="products-position">
                         <div class="products-image">
                             <img class="products-image__img" src="{{image}}" alt="image">
                         </div>
                         <h4 class="products-position__name">{{name}}</h4>
                         <h2 class="products-position__price">{{price}} đ</h2>
-                    
-                        <button type="button" class="btn btn-primary addToCart" productid="{{id}}" >Mua ngay</button>
+
+                        <button type="button" class="btn btn-primary" id="addToCart">Mua ngay</button>
                     </div>
+
                 </div>
+
 
             </div>
 
@@ -112,14 +112,7 @@
     <script src="./js/axios.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/cart.js"></script>
-    <script>
-    $(document).ready(function(){
-    $('.addToCart').on('click', function(){
-        var proId = $(this).attr('productid');
-        console.log(proId);
-    });
-})
-    </script>
+
 
 </body>
 
