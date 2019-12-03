@@ -319,7 +319,22 @@ a:hover{
     grid-row-gap: 30px;
     
 }
+.product-search-row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+}
+.product-list-cart-row{
+    display: grid;
 
+}
+/* form search */
+.form-search{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 20px;
+}
 
 /* === footer */
 footer{

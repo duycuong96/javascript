@@ -28,18 +28,64 @@ $(document).ready(function () {
   });
 
   
-// Lấy id 
- 
-function createItem(id) {
-    localStorage.setItem("id", `${id}`);
+
+
+// lấy thông tin vào giỏ hàng
+
+function addProduct(){
+  // productId = productId + 1;
+  let productCart = [];
+
+    
+  if(localStorage.getItem('productCart')){
+    productCart = JSON.parse(localStorage.getItem('productCart'));
+    // parse -> productCart nhận 1 array hoặc object được chuyển lại từ json.stringify
   }
 
-// lấy id vào giỏ hàng
+  let productName = document.querySelector('#product-name').innerHTML;
+  let productPrice = document.querySelector('#product-price').innerHTML;
+  let productId = document.querySelector('#product-id-cart').innerHTML;
+  
+  productCart.push({
+    id : productId,
+    name : productName,
+    price : productPrice
+  });
 
-function createItemCart(id) {
-  // localStorage.setItem("id",);
-  localStorage.setItem("idCart", JSON.stringify( `${id}`));
+  localStorage.setItem('productCart', JSON.stringify(productCart));
 }
+
+function getProductCart(){
+  productCart = JSON.parse(localStorage.getItem('productCart'));
+  const listProductCart = document.querySelector('.product-cart-row');
+  listProductCart.innerHTML = productCart.map(product => {
+    return `<div class="products-position">
+                <div class="products-image">
+                    <img class="products-image__img" src="${product.image}" alt="">
+                </div>
+                <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
+                <hr>
+                <div class="products-price" >
+                    <h2 class="text-left">${product.price}</h2>
+                    <h2 class="text-right"><i class="fa fa-trash"></i></h2>
+                </div>
+            </div>`;
+}).join('');
+}
+// getProductCart();
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -56,78 +56,22 @@
         </div>
     </header>
     <!-- end menu -->
-    <!-- slider -->
-    <section class="main-slider">
-        <div class="container">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <img class="" src="./image/bg-1.webp" />
-                    </li>
-                    <li>
-                        <img class="" src="./image/bg-2.webp" />
-                    </li>
-                    <li>
-                        <img class="" src="./image/bg-3.jpg" />
-                    </li>
-                    <li>
-                        <img class="" src="./image/bg-4.webp" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- end slider -->
-    <!-- categories -->
-    <section class="main-categories">
-        <div class="container">
-            <div class="section-heading categories-heading">
-                <h2 class="section-heading__title categories-heading__title">Danh mục sản phẩm </h2>
-            </div>
-            <div class="section-body">
-                <div class="categories-row">
-                    <!-- <div class="categories-position">
-                        <div class="categories-content">
-                            <div class="categories-name">
-                                <h1>a</h1>
-                            </div>
-                            <div class="categories-image">
-                                <h2>2</h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end categories -->
+    <div style="clear: both;"></div>
     <!-- banner -->
-    <section class="banner jumbotron text-center">
+    <section class="banner text-center">
         <div class="container">
             <h1 class="banner__title">Lorem, ipsum dolor sit amet.</h1>
-            <p class="banner__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam numquam, minus illum
-                porro assumenda neque vel incidunt, error in eaque architecto cumque magni nulla. Saepe sunt quidem
-                fugit molestias facere.</p>
             <a href="#products" class="btn btn-primary banner__link">Danh sách sản phẩm</a>
         </div>
     </section>
     <!-- end banner -->
-    <!-- latest products -->
-    <section class="products" id="products">
+    <section class="list-product">
         <div class="container">
-            <div class="section-heading products-heading">
-                <h2 class="section-heading__title products-heading__title">Sản phẩm mới nhất</h2>
-            </div>
-            <div class="section-body products-body">
-                <div class="products-row">
-                    <!-- list products  -->
-                </div>
+            <div class="product-search-row">
 
             </div>
         </div>
     </section>
-    <!-- end latest products -->
     <!-- footer -->
     <footer>
         <div class="container">
@@ -160,8 +104,9 @@
         </div>
     </footer>
     <!-- end footer -->
-     <!-- Cart Product -->
-     <div class="modal" id="myModal">
+
+    <!-- Cart Product -->
+    <div class="modal" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -172,36 +117,33 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div >
-                        <form action="search.html" class="form-search">
-                                <input type="text" class="form-control" name="search" >
-                                <button  class="btn btn-primary" type="submit">Tìm</button>
-                        </form>
-
+                        <div >
+                            <form action="search.html" class="form-search" method="get">
+                                    <input type="text" class="form-control" name="search" id="value-search" >
+                                    <button  class="btn btn-primary" type="submit" onclick="getSearchProduct();">Tìm</button>
+                            </form>
+    
+                        </div>
                     </div>
-                </div>
-
-
-
             </div>
         </div>
     </div>
-
     <!-- script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/axios.js"></script>
     <!--  -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--  -->
     <script src="./js/menu.js"></script>
+    <script src="./js/main.js"></script>
 
     <!--  -->
     <script src="./js/slider.js"></script>
     <script src="./js/jquery.flexslider.js"></script>
     <script src="./js/main.js"></script>
-
 </body>
 
 </html>
