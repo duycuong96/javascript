@@ -1,3 +1,5 @@
+const API = "http://5dcf7e2d75f9360014c268b9.mockapi.io/product";
+
 // get categories
 axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     .then(function (response) {
@@ -29,7 +31,7 @@ axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     });
 
 // get product
-axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?page=1&limit=8&sortBy=createdAt&order=desc')
+axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
     .then(function (response) {
         // handle success
         const { data } = response;
@@ -67,7 +69,7 @@ function createItem(id) {
 
 function getProductDetail(){
     let proid = localStorage.getItem("id");
-    axios.get(`http://5dcf7e2d75f9360014c268b9.mockapi.io/product/${proid}`)
+    axios.get(`${API}/${proid}`)
     .then(function (response) {
         // handle success
         const { data } = response;
@@ -87,7 +89,7 @@ function getProductDetail(){
         detailProductDesc.append(`<p>${data.desc}</p>`);
 
         const detailProductImage = $('#tab-image');
-        detailProductImage.append(`<img src="${data.image}">`);
+        detailProductImage.append(`<img class="product-image" src="${data.image}">`);
     })
     .catch(function (error) {
         // handle error
@@ -101,7 +103,7 @@ getProductDetail();
 
 // get product cart
 function getListProduct(){
-    axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/product/?sortBy=createdAt&order=desc')
+    axios.get(`${API}/?sortBy=createdAt&order=desc`)
     .then(function (response) {
         // handle success
         const { data } = response;
@@ -138,37 +140,45 @@ getListProduct();
 //     });
   
 // })
+$(document).ready(function() {
+    $('#search-pro').click(function(){
+        const keyword = $('#value-search').val();
+
+        axios.get(`${API}?search=${keyword}`)
+        
+        .then(function (response) {
+            // handle success
+            const { data } = response;
+            const listSearchProduct = document.querySelector('.product-search-row');
+            listSearchProduct.innerHTML = data.map(product => {
+                return `<div class="products-position col-sm-3">
+                            <div class="products-image">
+                                <img class="products-image__img" src="${product.image}" alt="">
+                            </div>
+                            <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
+                            <hr>
+                            <div class="products-price" >
+                                <h2 class="text-left">${product.price}</h2>
+                                <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
+                            </div>
+                        </div>`;
+            }).join('');
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+    })
+})
+
 function getSearchProduct(){
-    let value  = $("input[name=search]").val();
-    axios.get(`http://5dcf7e2d75f9360014c268b9.mockapi.io/product?search=${value}`)
-    
-    .then(function (response) {
-        // handle success
-        const { data } = response;
-        const listSearchProduct = document.querySelector('.product-search-row');
-        listSearchProduct.innerHTML = data.map(product => {
-            return `<div class="products-position">
-                        <div class="products-image">
-                            <img class="products-image__img" src="${product.image}" alt="">
-                        </div>
-                        <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
-                        <hr>
-                        <div class="products-price" >
-                            <h2 class="text-left">${product.price}</h2>
-                            <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
-                        </div>
-                    </div>`;
-        }).join('');
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
-    .finally(function () {
-        // always executed
-    });
+
 }
-getSearchProduct();
+
+
 
 
 

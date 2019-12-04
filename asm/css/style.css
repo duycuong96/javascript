@@ -325,9 +325,9 @@ a:hover{
     grid-column-gap: 20px;
     grid-row-gap: 30px;
 }
-.product-list-cart-row{
+.product-cart-row{
     display: grid;
-
+    grid-gap:20px;
 }
 /* form search */
 .form-search{
