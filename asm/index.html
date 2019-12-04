@@ -35,18 +35,18 @@
                             <h3><a href="index.html">Home</a></h3>
                         </li>
                         <li class="menu-item">
-                            <h3><a href="product.html">Danh Sách Sản phẩm</a></h3>
+                            <h3><a href="list-product.html">Danh Sách Sản phẩm</a></h3>
                         </li>
                         <li class="menu-item">
                             <h3><a href="contact.html">Liên hệ</a></h3>
                         </li>
-                        
+
                         <li class="menu-item">
                             <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
                         </li>
                         <li class="menu-item">
-                            <h3><a href=""  data-toggle="modal"
-                                data-target="#myModal"><i class="fa fa-search" ></i></a></h3>
+                            <h3><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></a>
+                            </h3>
                         </li>
 
                     </ul>
@@ -109,7 +109,7 @@
             <p class="banner__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam numquam, minus illum
                 porro assumenda neque vel incidunt, error in eaque architecto cumque magni nulla. Saepe sunt quidem
                 fugit molestias facere.</p>
-            <a href="#products" class="btn btn-primary banner__link">Danh sách sản phẩm</a>
+            <a href="list-product.html" class="btn btn-primary banner__link">Danh sách sản phẩm</a>
         </div>
     </section>
     <!-- end banner -->
@@ -160,8 +160,8 @@
         </div>
     </footer>
     <!-- end footer -->
-     <!-- Cart Product -->
-     <div class="modal" id="myModal">
+    <!-- Cart Product -->
+    <div class="modal" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -172,13 +172,11 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div >
-                        <form action="search.html" class="form-search" name="form">
-                            <input type="text" class="form-control" name="name" id="value-search" >
-                            <button  class="btn btn-primary" type="button" onclick="getSearchProduct()">Tìm</button>
-                    </form>
-
-
+                    <div>
+                        <form action="search.html" class="form-search" method="get">
+                            <input type="text" class="form-control" name="s" id="value-search">
+                            <button id="search-pro" class="btn btn-primary" type="button">Tìm</button>
+                        </form>
                     </div>
                 </div>
 

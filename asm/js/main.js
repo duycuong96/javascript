@@ -36,6 +36,9 @@ $(document).ready(function(){
   getTotalPrice();
   removeProduct();
   
+  var groupProduct = groupBy(productCart, 'id');
+console.log(groupProduct);
+
 })
 
 // lấy vào giỏ hàng
@@ -67,7 +70,6 @@ function addProduct(){
   localStorage.setItem('productCart', JSON.stringify(productCart));
   
 }
-
 
 
 function getCartProduct(){
@@ -111,6 +113,19 @@ function getTotalPrice(){
   $('.quantity-product').html(`Số lượng: ${quantityProduct}`);
   $('.total-price').html(`Tổng tiền: ${totalPrice}000 đ`)
 }
+
+function groupBy(objectArray, property) {
+  return objectArray.reduce(function (acc, obj) {
+    var key = obj[property];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, {});
+}
+
+
 
 function removeProduct(){
   $('#removeProduct').click(function(){

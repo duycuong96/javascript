@@ -1,4 +1,4 @@
-const API = "http://5dcf7e2d75f9360014c268b9.mockapi.io/product";
+const API = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
 
 // get categories
 axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
