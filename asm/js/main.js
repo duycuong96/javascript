@@ -35,11 +35,17 @@ $(document).ready(function(){
   getCartProduct();
   getTotalPrice();
   removeProduct();
-  
-  var groupProduct = groupBy(productCart, 'id');
-console.log(groupProduct);
 
 
+  function removeDuplicates(array, key) {
+    return array.reduce((accumulator, element) => {
+        if (!accumulator.find(el => el[key] === element[key])) {
+          accumulator.push(element);
+        }
+        return accumulator;
+      }, []);
+}
+console.log(removeDuplicates(productCart, 'id'))
 
 })
 
@@ -75,8 +81,20 @@ function addProduct(){
 
 
 function getCartProduct(){
+
+  // lọc ra id bị trùng
+  const filteredArr = productCart.reduce((acc, current) => {
+    const x = acc.find(item => item.id === current.id);
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+
+
   const listProductCart = document.querySelector('.product-cart-row');
-  listProductCart.innerHTML = productCart.map(product => {
+  listProductCart.innerHTML = filteredArr.map(product => {
     return `<div class="products-position">
               <div class="row">
                   <div class="col-sm-3">
@@ -86,8 +104,9 @@ function getCartProduct(){
 
               </div>
               <div class="col-sm-9">
-                <h4 class="products-position__name"><a href="product.html"
+                <h3 class="products-position__name"><a href="product.html"
                     onclick="createItem(${product.id})">${product.name}</a></h3>
+                    
                 <hr>
                 <div class="products-price">
                     <h4 class="text-left">${product.price},000 đ</h4>
@@ -116,17 +135,17 @@ function getTotalPrice(){
   $('.total-price').html(`Tổng tiền: ${totalPrice}000 đ`)
 }
 
-function groupBy(objectArray, property) {
-  return objectArray.reduce(function (acc, obj) {
-    var key = obj[property];
-    if (!acc[key]) {
-      acc[key] = [];
-    }
-    acc[key].push(obj);
-    return acc;
-  }, {});
-}
 
+function filterProduct(){
+  const filteredArr = productCart.reduce((acc, current) => {
+    const x = acc.find(item => item.id === current.id);
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+}
 
 
 function removeProduct(){
