@@ -30,7 +30,7 @@ axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
         // always executed
     });
 
-// get product
+// get 8 product latest 
 axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
     .then(function (response) {
         // handle success
@@ -41,7 +41,7 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
+                        <h3 class="products-position__name"  ><a href="product.html"  class="product-link" data-id="${product.id}">${product.name}</a></h3>
                         
                         <hr>
                         <div class="products-price" >
@@ -50,6 +50,10 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
                         </div>
                     </div>`;
         }).join('');
+
+        const productLink = document.querySelectorAll('.product-link');
+        console.log(productLink);
+
     })
     .catch(function (error) {
         // handle error
@@ -59,17 +63,11 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
         // always executed
     });
 
-// 
-// Lấy id 
- 
-function createItem(id) {
-    localStorage.setItem("id", `${id}`);
-  }
 // get product detail
 
 function getProductDetail(){
-    let proid = localStorage.getItem("id");
-    axios.get(`${API}/${proid}`)
+    let proId = localStorage.getItem("id");
+    axios.get(`${API}/${proId}`)
     .then(function (response) {
         // handle success
         const { data } = response;
@@ -101,7 +99,7 @@ function getProductDetail(){
 } 
 getProductDetail();
 
-// get product cart
+// get list product 
 function getListProduct(){
     axios.get(`${API}/?sortBy=createdAt&order=desc`)
     .then(function (response) {
@@ -113,7 +111,7 @@ function getListProduct(){
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
+                        <h3 class="products-position__name"  ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
                         <hr>
                         <div class="products-price" >
                             <h2 class="text-left">${product.price}</h2>
@@ -121,6 +119,14 @@ function getListProduct(){
                         </div>
                     </div>`;
         }).join('');
+        const linkProduct = document.querySelectorAll('.product-link');
+        
+        for( let i = 0; i < linkProduct.length; i++){
+            linkProduct[i].addEventListener('click', function(){
+                const id = linkProduct[i].dataset.id;
+                localStorage.setItem('id', id);
+            })
+        }
     })
     .catch(function (error) {
         // handle error
@@ -133,13 +139,6 @@ function getListProduct(){
 getListProduct();
 
 // search 
-// $(document).ready(function(){
-//     $(".form-search").submit(function(){
-        
-//         getSearchProduct();
-//     });
-  
-// })
 $(document).ready(function() {
     $('#search-pro').click(function(){
         const keyword = $('#value-search').val();
@@ -171,12 +170,10 @@ $(document).ready(function() {
         .finally(function () {
             // always executed
         });
-    })
+    });
 })
 
-function getSearchProduct(){
 
-}
 
 
 

@@ -36,17 +36,6 @@ $(document).ready(function(){
   getTotalPrice();
   removeProduct();
 
-
-  function removeDuplicates(array, key) {
-    return array.reduce((accumulator, element) => {
-        if (!accumulator.find(el => el[key] === element[key])) {
-          accumulator.push(element);
-        }
-        return accumulator;
-      }, []);
-}
-console.log(removeDuplicates(productCart, 'id'))
-
 })
 
 // lấy vào giỏ hàng
@@ -60,10 +49,10 @@ function addProduct(){
     // parse -> productCart nhận 1 array hoặc object được chuyển lại từ json.stringify
   }
 
-  let productName = document.querySelector('#product-name').innerHTML;
-  let productPrice = document.querySelector('#product-price').innerHTML;
-  let productId = document.querySelector('#product-id-cart').innerHTML;
-  let productImage = document.querySelector('.product-image').src;
+  let productName = $('#product-name').text();
+  let productPrice = $('#product-price').text();
+  let productId = $('#product-id-cart').text();
+  let productImage = $('.product-image').src;
   let quantity = 1;
   
   
@@ -91,32 +80,34 @@ function getCartProduct(){
       return acc;
     }
   }, []);
-
-
   const listProductCart = document.querySelector('.product-cart-row');
-  listProductCart.innerHTML = filteredArr.map(product => {
-    return `<div class="products-position">
-              <div class="row">
-                  <div class="col-sm-3">
-              <div class="products-image">
-                  <img class="" src="${product.image}" alt="">
-              </div>
-
-              </div>
-              <div class="col-sm-9">
-                <h3 class="products-position__name"><a href="product.html"
-                    onclick="createItem(${product.id})">${product.name}</a></h3>
-                    
-                <hr>
-                <div class="products-price">
-                    <h4 class="text-left">${product.price},000 đ</h4>
-                    <p class="text-right"><i id="removeProduct" class="fa fa-trash"></i></p>
+  if(listProductCart){
+  
+    listProductCart.innerHTML = filteredArr.map(product => {
+      return `<div class="products-position">
+                <div class="row">
+                    <div class="col-sm-3">
+                <div class="products-image">
+                    <img class="" src="${product.image}" alt="">
                 </div>
+  
                 </div>
-             </div>
+                <div class="col-sm-9">
+                  <h3 class="products-position__name"><a href="product.html"
+                      onclick="createItem(${product.id})">${product.name}</a></h3>
+                      
+                  <hr>
+                  <div class="products-price">
+                      <h4 class="text-left">${product.price},000 đ</h4>
+                      <p class="text-right"><i id="removeProduct" class="fa fa-trash"></i></p>
+                  </div>
+                  </div>
+               </div>
+  
+            </div>`;
+  }).join('');
+  }
 
-          </div>`;
-}).join('');
 
 }
 
@@ -136,16 +127,16 @@ function getTotalPrice(){
 }
 
 
-function filterProduct(){
-  const filteredArr = productCart.reduce((acc, current) => {
-    const x = acc.find(item => item.id === current.id);
-    if (!x) {
-      return acc.concat([current]);
-    } else {
-      return acc;
-    }
-  }, []);
-}
+// function filterProduct(){
+//   const filteredArr = productCart.reduce((acc, current) => {
+//     const x = acc.find(item => item.id === current.id);
+//     if (!x) {
+//       return acc.concat([current]);
+//     } else {
+//       return acc;
+//     }
+//   }, []);
+// }
 
 
 function removeProduct(){
