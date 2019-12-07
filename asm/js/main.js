@@ -38,11 +38,9 @@ $(document).ready(function(){
 
 })
 
-// lấy vào giỏ hàng
+// lấy sản phẩm vào giỏ hàng
 function addProduct(){
-  // productId = productId + 1;
   let productCart = [];
-
     
   if(localStorage.getItem('productCart')){
     productCart = JSON.parse(localStorage.getItem('productCart'));

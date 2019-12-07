@@ -41,18 +41,23 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  ><a href="product.html"  class="product-link" data-id="${product.id}">${product.name}</a></h3>
-                        
+                        <h3 class="products-position__name"  ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
                         <hr>
                         <div class="products-price" >
                             <h2 class="text-left">${product.price}</h2>
-                            <h2 class="text-right"></i><i class="fa fa-shopping-cart"></i></h2>
+                            <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
                         </div>
                     </div>`;
         }).join('');
 
-        const productLink = document.querySelectorAll('.product-link');
-        console.log(productLink);
+        const linkProduct = document.querySelectorAll('.product-link');
+        
+        for( let i = 0; i < linkProduct.length; i++){
+            linkProduct[i].addEventListener('click', function(){
+                const id = linkProduct[i].dataset.id;
+                localStorage.setItem('id', id);
+            })
+        }
 
     })
     .catch(function (error) {
@@ -150,17 +155,17 @@ $(document).ready(function() {
             const { data } = response;
             const listSearchProduct = document.querySelector('.product-search-row');
             listSearchProduct.innerHTML = data.map(product => {
-                return `<div class="products-position col-sm-3">
-                            <div class="products-image">
-                                <img class="products-image__img" src="${product.image}" alt="">
-                            </div>
-                            <h3 class="products-position__name"  ><a href="product.html" onclick="createItem(${product.id})">${product.name}</a></h3>
-                            <hr>
-                            <div class="products-price" >
-                                <h2 class="text-left">${product.price}</h2>
-                                <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
-                            </div>
-                        </div>`;
+            return `<div class="products-position">
+                        <div class="products-image">
+                            <img class="products-image__img" src="${product.image}" alt="">
+                        </div>
+                        <h3 class="products-position__name"  ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
+                        <hr>
+                        <div class="products-price" >
+                            <h2 class="text-left">${product.price}</h2>
+                            <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
+                        </div>
+                    </div>`;
             }).join('');
         })
         .catch(function (error) {
