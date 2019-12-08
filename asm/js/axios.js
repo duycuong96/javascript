@@ -68,42 +68,6 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
         // always executed
     });
 
-// get product detail
-
-function getProductDetail(){
-    let proId = localStorage.getItem("id");
-    axios.get(`${API}/${proId}`)
-    .then(function (response) {
-        // handle success
-        const { data } = response;
-
-        const detailProductName = $('.product-detail-name');
-        detailProductName.append(`<h3 class="title mb-3" id="product-name">${data.name}</h3>`) ;
-
-        const detailProductPrice = $('.product-detail-price');
-
-        detailProductPrice.append(`<var class="price h3 text-warning">
-                                    <span class="num" id="product-price">${data.price}</span> <span class="currency">$</span>
-                                    </var>`);
-        const detailProductId = $('.product-detail-id');
-        detailProductId.append(`<p id="product-id-cart" >${data.id}</p>`);
-
-        const detailProductDesc = $('#tab-description');
-        detailProductDesc.append(`<p>${data.desc}</p>`);
-
-        const detailProductImage = $('#tab-image');
-        detailProductImage.append(`<img class="product-image" src="${data.image}">`);
-    })
-    .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
-    .finally(function () {
-        // always executed
-    });
-} 
-getProductDetail();
-
 // get list product 
 function getListProduct(){
     axios.get(`${API}/?sortBy=createdAt&order=desc`)
@@ -142,6 +106,44 @@ function getListProduct(){
     });
 }
 getListProduct();
+
+// get product detail
+
+function getProductDetail(){
+    let proId = localStorage.getItem("id");
+    axios.get(`${API}/${proId}`)
+    .then(function (response) {
+        // handle success
+        const { data } = response;
+
+        const detailProductName = $('.product-detail-name');
+        detailProductName.append(`<h3 class="title mb-3" id="product-name">${data.name}</h3>`) ;
+
+        const detailProductPrice = $('.product-detail-price');
+
+        detailProductPrice.append(`<var class="price h3 text-warning">
+                                    <span class="num" id="product-price">${data.price}</span> <span class="currency">$</span>
+                                    </var>`);
+        const detailProductId = $('.product-detail-id');
+        detailProductId.append(`<p id="product-id-cart" >${data.id}</p>`);
+
+        const detailProductDesc = $('#tab-description');
+        detailProductDesc.append(`<p>${data.desc}</p>`);
+
+        const detailProductImage = $('#tab-image');
+        detailProductImage.append(`<img class="product-image" src="${data.image}">`);
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+    .finally(function () {
+        // always executed
+    });
+} 
+getProductDetail();
+
+
 
 // search 
 $(document).ready(function() {

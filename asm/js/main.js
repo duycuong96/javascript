@@ -50,7 +50,7 @@ function addProduct(){
   let productName = $('#product-name').text();
   let productPrice = $('#product-price').text();
   let productId = $('#product-id-cart').text();
-  let productImage = $('.product-image').src;
+  let productImage = $('.product-image').attr('src');
   let quantity = 1;
   
   
@@ -78,6 +78,7 @@ function getCartProduct(){
       return acc;
     }
   }, []);
+  
   const listProductCart = document.querySelector('.product-cart-row');
   if(listProductCart){
   
@@ -124,17 +125,6 @@ function getTotalPrice(){
   $('.total-price').html(`Tổng tiền: ${totalPrice}000 đ`)
 }
 
-
-// function filterProduct(){
-//   const filteredArr = productCart.reduce((acc, current) => {
-//     const x = acc.find(item => item.id === current.id);
-//     if (!x) {
-//       return acc.concat([current]);
-//     } else {
-//       return acc;
-//     }
-//   }, []);
-// }
 
 
 function removeProduct(){
