@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- link slider -->
+
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/flexslider.css">
+    <link rel="stylesheet" href="./css/flexslider-rtl.css">
+    <link rel="stylesheet" href="./css/flexslider-rtl-min.css"> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- menu -->
+    <header>
+        <div class="container-fluid">
+            <div class="main-header">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://www.gstcouncil.org/wp-content/uploads/logo-booking-com-png-booking-com-1020.png"
+                            alt="vaco-logo" width="">
+                    </a>
+                </div>
+                <nav class="menu-header">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <h3><a href="index.html">Home</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="list-product.html">Danh Sách Sản phẩm</a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="contact.html">Liên hệ</a></h3>
+                        </li>
+
+                        <li class="menu-item">
+                            <h3><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></h3>
+                        </li>
+                        <li class="menu-item">
+                            <h3><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></a>
+                            </h3>
+                        </li>
+
+                    </ul>
+                    <a href="#" id="pull"></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- end menu -->
+    <div style="clear: both;"></div>
+    <!-- banner -->
+    <section class="banner text-center">
+        <div class="container">
+            <h1 class="banner__title">Liên hệ với chúng tôi</h1>
+        </div>
+    </section>
+    <!-- end banner -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-body">
+                <form action="" class="contact-form" method="POST">
+                    <div class="row justify-content-md-center">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control contact-form__input form-control-lg"
+                                    placeholder="Họ và tên" name="name" id="name">
+                                <span class="text-danger" id="userError"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control contact-form__input form-control-lg"
+                                    placeholder="Email" name="email" id="email">
+                                <span class="text-danger" id="emailError"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control contact-form__input form-control-lg"
+                                    placeholder="Số điện thoại" name="phone-number" id="phone-number">
+                                <span class="text-danger" id="phoneError"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control contact-form__input form-control-lg" name="content"
+                                    id="content" cols="30" rows="5" placeholder="Nội dung liên hệ"></textarea>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary btn-block" type="submit" id="submit">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <section class="second">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3>Công Ty Cổ Phần Ti Ki - Tiki.vn</h3>
+                        <ul>
+                            <li>Địa chỉ: <a href=""> 6868, Lê Trọng Tấn, Hà Nội, Hà Nội</a> </li>
+                            <li>Điện thoại: <a href="">0123456789 </a></li>
+                            <li>Email: <a href="">web.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+
+                        <h3>Kết nối với chúng tôi</h3>
+                        <div class="social">
+                            <i class="fa fa-facebook-f"></i>
+                            <i class="fa fa-twitter"></i>
+                            <i class="fa fa-google"></i>
+                            <i class="fa fa-linkedin"></i>
+                            <i class="fa fa-pinterest"></i>
+                            <i class="fa fa-youtube"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- script -->
+
+    <!--  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!--  -->
+    <script src="./js/menu.js"></script>
+
+    <!--  -->
+    <script src="./js/validate.js"></script>
+</body>
+
+</html>
