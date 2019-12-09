@@ -43,11 +43,11 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
                         <div class="products-image">
                             <img class="products-image__img" src="${product.image}" alt="">
                         </div>
-                        <h3 class="products-position__name"  ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
+                        <h3 class="products-position__name" ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
                         <hr>
                         <div class="products-price" >
                             <h2 class="text-left">${product.price}</h2>
-                            <h2 class="text-right"><i class="fa fa-shopping-cart"></i></h2>
+                            <h2 class="product-cart text-right"><i class="fa fa-shopping-cart"></i></h2>
                         </div>
                     </div>`;
         }).join('');
@@ -57,7 +57,16 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
         for( let i = 0; i < linkProduct.length; i++){
             linkProduct[i].addEventListener('click', function(){
                 const id = linkProduct[i].dataset.id;
+                console.log(id);
                 localStorage.setItem('id', id);
+            })
+        }
+
+        const linkProductCart = document.querySelectorAll('.product-cart');
+        // console.log(linkProductCart);
+        for(let i = 0; i < linkProductCart.length; i++){
+            linkProductCart[i].addEventListener('click', function(){
+                
             })
         }
 
