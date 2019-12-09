@@ -4,7 +4,9 @@ const API = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
 axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     .then(function (response) {
         // handle success
+        // console.log(response);
         const { data } = response;
+        // console.log(data);
         const listProduct = document.querySelector('.categories-row');
         listProduct.innerHTML = data.map(category => {
             return `<div class="categories-position">
@@ -105,7 +107,7 @@ function getListProduct(){
         // always executed
     });
 }
-getListProduct();
+getListProduct(); 
 
 // get product detail
 
