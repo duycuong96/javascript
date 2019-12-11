@@ -54,6 +54,7 @@ function addProduct(){
   let quantity = 1;
   
   
+  
   productCart.push({
     id : parseFloat(productId),
     name : productName,
@@ -62,9 +63,17 @@ function addProduct(){
     image : productImage
   });
 
+  console.log(productCart.id);
+
   localStorage.setItem('productCart', JSON.stringify(productCart));
   
 }
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let productCart = [];
+});
+
+
 
 
 function getCartProduct(){

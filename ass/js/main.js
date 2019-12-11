@@ -1,152 +1,323 @@
-// lấy thông tin vào giỏ hàng
-$(document).ready(function () {
-  // Hàm active tab nào đó
-  function activeTab(obj) {
-    // Xóa class active tất cả các tab
-    $('.tab-wrapper ul li').removeClass('active');
+// gọi ra đối tượng là cart
+const CART = {
+    KEY: 'cart',
+    values: [],
+    init() {
+        
+        let productCart = localStorage.getItem(CART.KEY);
+        if (productCart) {
+            CART.values = JSON.parse(productCart);
+        } else {
+            
+            CART.values = [
+            ];
+            CART.sync();
+        }
+    },
+    async sync() {
+        let _cart = JSON.stringify(CART.values);
+        await localStorage.setItem(CART.KEY, _cart);
+    },
+    find: function (id) {
+        
+        let match = CART.values.filter(item => {
+            if (item.id == id)
+                return true;
+        });
+        if (match && match[0])
+            return match[0];
+    },
+    add(id) {
+       
+        if (CART.find(id)) {
+            CART.increase(id, 1);
+        } else {
+            let arr = PRODUCTS.filter(product => {
+                if (product.id == id) {
+                    return true;
+                }
+            });
+            if (arr && arr[0]) {
+                let obj = {
+                    id: parseInt(arr[0].id),
+                    name: arr[0].name,
+                    image: arr[0].image,
+                    qty: 1,
+                    price: arr[0].price
+                };
+                CART.values.push(obj);
+                //update localStorage
+                CART.sync();
+            } else {
+                
+                console.error('Invalid Product');
+            }
+        }
+    },
+    increase(id, qty = 1) {
+        
+        CART.values = CART.values.map(item => {
+            if (item.id === id)
+                item.qty = item.qty + qty;
+            return item;
+        });
+        //update localStorage
+        CART.sync()
+    },
+    reduce(id, qty = 1) {
+        
+        CART.values = CART.values.map(item => {
+            if (item.id === id)
+                item.qty = item.qty - qty;
+            return item;
+        });
+        CART.values.forEach(async item => {
+            if (item.id === id && item.qty === 0)
+                await CART.remove(id);
+        });
+        //update localStorage
+        CART.sync()
+    },
+    remove(id) {
+       
+        CART.values = CART.values.filter(item => {
+            if (item.id !== id)
+                return true;
+        });
+        //update localStorage
+        CART.sync()
+    },
 
-    // Thêm class active vòa tab đang click
-    $(obj).addClass('active');
+    sort(field = 'price') {
 
-    // Lấy href của tab để show content tương ứng
-    var id = $(obj).find('a').attr('href');
+        let sorted = CART.values.sort((a, b) => {
+            if (a[field] > b[field]) {
+                return 1;
+            } else if (a[field] < b[field]) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        return sorted;
+        //NO impact on localStorage
+    },
+    logvalues(prefix) {
+        console.log(prefix, CART.values)
+    }
+};
 
-    // Ẩn hết nội dung các tab đang hiển thị
-    $('.tab-item').hide();
+let PRODUCTS = [];
 
-    // Hiển thị nội dung của tab hiện tại
-    $(id).show();
-  }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    getProducts(showProducts, errorMessage);
+    
+    CART.init();
+    
+    showCart();
 
-  // Sự kiện click đổi tab
-  $('.tab li').click(function () {
-    activeTab(this);
-    return false;
-  });
-
-  // Active tab đầu tiên khi trang web được chạy
-  activeTab($('.tab li:first-child'));
+    getTotalPrice();
+    
 });
 
-// cart
-$(document).ready(function(){
-  productCart = JSON.parse(localStorage.getItem('productCart'));
-  // console.log(productCart);
-  getCartProduct();
-  getTotalPrice();
-  removeProduct();
+function showCart() {
+    let cartSection = document.querySelector('.product-cart-row');
+    cartSection.innerHTML = "";
+    let s = CART.sort('qty');
+    s.forEach(item => {
+        let cartitem = document.createElement('div');
+        cartitem.className = 'products-position';
 
-})
+        cartitem.innerHTML = `<div class="row">
+                                <div class="col-sm-3">
+                                    <div class="products-image">
+                                        <img class="" src="${item.image}" alt="">
+                                    </div>
 
-// lấy sản phẩm vào giỏ hàng
-function addProduct(){
-  let productCart = [];
-    
-  if(localStorage.getItem('productCart')){
-    productCart = JSON.parse(localStorage.getItem('productCart'));
-    // parse -> productCart nhận 1 array hoặc object được chuyển lại từ json.stringify
-  }
+                                </div>
+                                <div class="col-sm-9">
+                                    <h3 class="products-position__name"><a href="product.html" onclick="createItem(${item.id})">${item.name}</a></h3>
+          
+                                <hr>
+                                <div class="products-price">
+                                    <h4 class="text-left">${item.price} đ</h4>
+                                </div>
+                                <div class="controls">
+                                    <span class="increment-qty" data-id="${item.id}">+</span>
+                                    <p class="quantity">${item.qty}</p>
+                                    <span class="decrement-qty" data-id="${item.id}">-</span>
+                                    </div>
+                                </div>
+                                
+                                </div>`;
+        
+        cartSection.appendChild(cartitem);
 
-  let productName = $('#product-name').text();
-  let productPrice = $('#product-price').text();
-  let productId = $('#product-id-cart').text();
-  let productImage = $('.product-image').attr('src');
-  let quantity = 1;
-  
-  
-  productCart.push({
-    id : parseFloat(productId),
-    name : productName,
-    quantity : quantity,
-    price : parseFloat(productPrice),
-    image : productImage
-  });
+        const incrementQty = document.querySelectorAll('.increment-qty');
+        for (let i = 0; i < incrementQty.length; i++) {
+            incrementQty[i].addEventListener('click', incrementCart);
+        }
 
-  // nếu id đã có trong mảng thì số lượng cộng thêm
-  console.log(productCart);
-  
+        const decrementQty = document.querySelectorAll('.decrement-qty');
+        for (let i = 0; i < decrementQty.length; i++) {
+            decrementQty[i].addEventListener('click', decrementCart);
+        }
 
-  localStorage.setItem('productCart', JSON.stringify(productCart));
-  
+    })
 }
 
-
-function getCartProduct(){
-
-
-  // lọc ra id bị trùng
-  // const filteredArr = productCart.reduce((acc, current) => {
-  //   const x = acc.find(item => item.id === current.id);
-  //   if (!x) {
-  //     return acc.concat([current]);
-  //   } else {
-  //     return acc;
-  //   }
-  // }, []);
-
-  const listProductCart = document.querySelector('.product-cart-row');
-  if(listProductCart){
-  
-    listProductCart.innerHTML = productCart.map(product => {
-      return `<div class="products-position">
-                <div class="row">
-                    <div class="col-sm-3">
-                <div class="products-image">
-                    <img class="" src="${product.image}" alt="">
-                </div>
-  
-                </div>
-                <div class="col-sm-9">
-                  <h3 class="products-position__name"><a href="product.html"
-                      onclick="createItem(${product.id})">${product.name}</a></h3>
-                      
-                  <hr>
-                  <div class="products-price">
-                      <h4 class="text-left">${product.price},000 đ</h4>
-                      <p class="text-right"><i id="removeProduct" class="fa fa-trash"></i></p>
-                  </div>
-                  </div>
-               </div>
-  
-            </div>`;
-  }).join('');
-  }
-
-
-
+function incrementCart(ev) {
+    ev.preventDefault();
+    let id = parseInt(ev.target.getAttribute('data-id'));
+    CART.increase(id, 1);
+    let controls = ev.target.parentElement;
+    let qty = controls.querySelector('.quantity');
+    let item = CART.find(id);
+    if (item) {
+        qty.textContent = item.qty;
+    } else {
+        document.getElementById('cart').removeChild(controls.parentElement);
+    }
 }
 
+function decrementCart(ev) {
+    ev.preventDefault();
+    let id = parseInt(ev.target.getAttribute('data-id'));
+    CART.reduce(id, 1);
+    let controls = ev.target.parentElement;
+    let qty = controls.querySelector('.quantity');
+    let item = CART.find(id);
+    if (item) {
+        qty.textContent = item.qty;
+    } else {
+        document.getElementById('cart').removeChild(controls.parentElement);
+    }
+}
+
+function getProducts(success, failure) {
+    //request the list of products from the "server"
+    const URL = "http://5dcf7e2d75f9360014c268b9.mockapi.io/product";
+    fetch(URL, {
+        method: 'GET',
+        mode: 'cors'
+    })
+        .then(response => response.json())
+        .then(showProducts)
+        .catch(err => {
+            errorMessage(err.message);
+        });
+}
+
+function showProducts(product) {
+    PRODUCTS = product;
+    //take data.products and display inside <section id="products">
+    let productSection = document.querySelector('.product-list-row');
+    productSection.innerHTML = "";
+    product.forEach(product => {
+        let listProduct = document.createElement('div');
+        listProduct.className = 'products-position';
+
+        listProduct.innerHTML = `<div class="products-image">
+                                    <img class="products-image__img" src="${product.image}" alt="">
+                                </div>
+                                <h3 class="products-position__name"  ><a href="product.html" class="product-link" data-id="${product.id}">${product.name}</a></h3>
+                                <div class="products-price" >
+                                    <h2 class="text-left">${product.price}</h2>
+                                </div>
+                                <hr>
+                                <button class="btn btn-block btn-primary">
+                                    <span class="add-cart-product" data-id="${product.id}" >Thêm vào giỏ hàng</span>
+                                </button>`;
+
+        productSection.appendChild(listProduct);
+
+        // lấy ra id chi tiết
+        const linkProduct = document.querySelectorAll('.product-link');
+        for (let i = 0; i < linkProduct.length; i++) {
+            linkProduct[i].addEventListener('click', function () {
+                const id = linkProduct[i].dataset.id;
+                localStorage.setItem('id', id);
+            })
+        }
+
+        const addCartProduct = document.querySelectorAll('.add-cart-product');
+        for (let i = 0; i < addCartProduct.length; i++) {
+            addCartProduct[i].addEventListener('click', addItem);
+        }
+    })
+}
+
+function getProductDetail(){
+    let proId = localStorage.getItem("id");
+    axios.get(`${API}/${proId}`)
+    .then(function (response) {
+        // handle success
+        const { data } = response;
+
+        const detailProductName = $('.product-detail-name');
+        detailProductName.append(`<h3 class="title mb-3" id="product-name">${data.name}</h3>`) ;
+
+        const detailProductPrice = $('.product-detail-price');
+
+        detailProductPrice.append(`<var class="price h3 text-warning">
+                                    <span class="num" id="product-price">${data.price}</span> <span class="currency">$</span>
+                                    </var>`);
+        const detailProductId = $('.product-detail-id');
+        detailProductId.append(`<p id="product-id-cart" >${data.id}</p>`);
+
+        const detailProductDesc = $('#tab-description');
+        detailProductDesc.append(`<p>${data.desc}</p>`);
+
+        const detailProductImage = $('#tab-image');
+        detailProductImage.append(`<img class="product-image" src="${data.image}">`);
+
+        const detailProductCart = $('.product-detail-cart');
+        detailProductCart.append(`  <button class="btn btn-lg btn-outline-primary">
+                                        <span class="add-cart-product" data-id="${data.id}" >Thêm vào giỏ hàng</span>
+                                    </button>`);
+
+        const addCartProduct = document.querySelector('.add-cart-product');
+        addCartProduct.addEventListener('click', addItem);
+        
+
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+    .finally(function () {
+        // always executed
+    });
+} 
+
+getProductDetail();
 
 function getTotalPrice(){
-  const totalPrice = productCart.reduce(function(currentTotal, product){
-    return currentTotal + product.quantity * product.price;
-  }, 0);
-  
-  const quantityProduct = productCart.reduce(function(totalQuantity, product){
-    return totalQuantity + product.quantity;
-  }, 0);
-  // console.log(quantityProduct);
 
-  $('.quantity-product').html(`Số lượng: ${quantityProduct}`);
-  $('.total-price').html(`Tổng tiền: ${totalPrice}000 đ`)
-}
-
-
-
-function removeProduct(){
-  $('#removeProduct').click(function(){
-    localStorage.removeItem("productCart");
-    // console.log('a');
-  });
-}
-
-
-
-
-
+    productCart = JSON.parse(localStorage.getItem('cart'));
+    console.log(productCart);
+    const totalPrice = productCart.reduce(function(currentTotal, product){
+      return currentTotal + product.qty * product.price;
+    }, 0);
     
+    $('.total-price').html(`Thành tiền: ${totalPrice}000 đ`)
+  }
 
 
+
+function addItem(ev) {
+    ev.preventDefault();
+    let id = parseInt(ev.target.getAttribute('data-id'));
+    console.log('add to cart item', id);
+    CART.add(id, 1);
+    showCart();
+}
+
+function errorMessage(err) {
+    //display the error message to the user
+    console.error(err);
+}
 
 
 
