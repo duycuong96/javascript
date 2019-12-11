@@ -3,7 +3,7 @@ const CART = {
     KEY: 'cart',
     values: [],
     init() {
-        
+        // kiểm tra localStorage và khởi tạo nội dung của CART.values
         let productCart = localStorage.getItem(CART.KEY);
         if (productCart) {
             CART.values = JSON.parse(productCart);
@@ -18,8 +18,9 @@ const CART = {
         let _cart = JSON.stringify(CART.values);
         await localStorage.setItem(CART.KEY, _cart);
     },
+    // 
     find: function (id) {
-        
+        // tìm id có trong giỏ hàng và trả về true
         let match = CART.values.filter(item => {
             if (item.id == id)
                 return true;
@@ -27,8 +28,9 @@ const CART = {
         if (match && match[0])
             return match[0];
     },
+    // thêm một item mới vào giỏ hàng
     add(id) {
-       
+        // kiểm tra xem nó chưa có trong giỏ hàng
         if (CART.find(id)) {
             CART.increase(id, 1);
         } else {
@@ -50,12 +52,12 @@ const CART = {
                 CART.sync();
             } else {
                 
-                console.error('Invalid Product');
+                console.error('Không hợp lệ');
             }
         }
     },
+    // tăng số lượng của một mặt hàng trong giỏ hàng
     increase(id, qty = 1) {
-        
         CART.values = CART.values.map(item => {
             if (item.id === id)
                 item.qty = item.qty + qty;
@@ -87,7 +89,7 @@ const CART = {
         //update localStorage
         CART.sync()
     },
-
+    // sắp xếp
     sort(field = 'price') {
 
         let sorted = CART.values.sort((a, b) => {
@@ -100,7 +102,7 @@ const CART = {
             }
         });
         return sorted;
-        //NO impact on localStorage
+        // KHÔNG ảnh hưởng đến localStorage
     },
     logvalues(prefix) {
         console.log(prefix, CART.values)
@@ -110,17 +112,18 @@ const CART = {
 let PRODUCTS = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // lấy ra sản phẩm
     getProducts(showProducts, errorMessage);
-    
+    // lấy các key và value từ localStorage
     CART.init();
-    
+    // show giỏ hàng
     showCart();
-
+    // tính tổng tiền 
     getTotalPrice();
     
 });
 
+// hàm show cart từ localStorage
 function showCart() {
     let cartSection = document.querySelector('.product-cart-row');
     cartSection.innerHTML = "";
@@ -166,7 +169,7 @@ function showCart() {
 
     })
 }
-
+// hàm tăng số lượng từng id trong giỏ hàng
 function incrementCart(ev) {
     ev.preventDefault();
     let id = parseInt(ev.target.getAttribute('data-id'));
@@ -180,7 +183,7 @@ function incrementCart(ev) {
         document.getElementById('cart').removeChild(controls.parentElement);
     }
 }
-
+// hàm giảm số lượng
 function decrementCart(ev) {
     ev.preventDefault();
     let id = parseInt(ev.target.getAttribute('data-id'));
@@ -194,9 +197,9 @@ function decrementCart(ev) {
         document.getElementById('cart').removeChild(controls.parentElement);
     }
 }
-
+// 
 function getProducts(success, failure) {
-    //request the list of products from the "server"
+    //request danh sách sản phẩm từ server
     const URL = "http://5dcf7e2d75f9360014c268b9.mockapi.io/product";
     fetch(URL, {
         method: 'GET',

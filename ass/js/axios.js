@@ -1,7 +1,7 @@
 const API = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
 const CATEGORY = "http://5df044e202b2d90014e1bcaf.mockapi.io/categories";
 // get categories
-axios.get('http://5df044e202b2d90014e1bcaf.mockapi.io/categories')
+axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     .then(function (response) {
         // handle success
         // console.log(response);
@@ -23,13 +23,6 @@ axios.get('http://5df044e202b2d90014e1bcaf.mockapi.io/categories')
                     `;
         }).join('');
 
-        const categoryId = document.querySelectorAll('.categories-link');
-        for (let i = 0; i < categoryId.length; i++) {
-            categoryId[i].addEventListener('click', function () {
-                const id = categoryId[i].dataset.id;
-                localStorage.setItem('cateId', id);
-            })
-        }
 
 
     })
@@ -66,7 +59,7 @@ axios.get(`${API}/?page=1&limit=8&sortBy=createdAt&order=desc`)
         for( let i = 0; i < linkProduct.length; i++){
             linkProduct[i].addEventListener('click', function(){
                 const id = linkProduct[i].dataset.id;
-                console.log(id);
+                // console.log(id);
                 localStorage.setItem('id', id);
             })
         }
