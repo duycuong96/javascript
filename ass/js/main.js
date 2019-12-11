@@ -200,7 +200,7 @@ function decrementCart(ev) {
 // 
 function getProducts(success, failure) {
     //request danh sách sản phẩm từ server
-    const URL = "http://5dcf7e2d75f9360014c268b9.mockapi.io/product";
+    const URL = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
     fetch(URL, {
         method: 'GET',
         mode: 'cors'
@@ -211,7 +211,7 @@ function getProducts(success, failure) {
             errorMessage(err.message);
         });
 }
-
+// show sản phẩm ra
 function showProducts(product) {
     PRODUCTS = product;
     //take data.products and display inside <section id="products">
@@ -250,7 +250,7 @@ function showProducts(product) {
         }
     })
 }
-
+// show chi tiết sản phẩm
 function getProductDetail(){
     let proId = localStorage.getItem("id");
     axios.get(`${API}/${proId}`)
@@ -295,7 +295,7 @@ function getProductDetail(){
 } 
 
 getProductDetail();
-
+// tính tổng tiền
 function getTotalPrice(){
 
     productCart = JSON.parse(localStorage.getItem('cart'));
@@ -308,7 +308,7 @@ function getTotalPrice(){
   }
 
 
-
+// add id vào giỏ hàng
 function addItem(ev) {
     ev.preventDefault();
     let id = parseInt(ev.target.getAttribute('data-id'));
