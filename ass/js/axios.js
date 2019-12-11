@@ -1,7 +1,7 @@
 const API = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
-const CATEGORY = "http://5df044e202b2d90014e1bcaf.mockapi.io/categories";
+// const CATEGORY = "https://5df044e202b2d90014e1bcaf.mockapi.io/categories";
 // get categories
-axios.get('http://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
+axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
     .then(function (response) {
         // handle success
         // console.log(response);
