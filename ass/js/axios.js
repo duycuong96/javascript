@@ -1,7 +1,7 @@
 const API = "https://5dcf7e2d75f9360014c268b9.mockapi.io/product";
 // const CATEGORY = "https://5df044e202b2d90014e1bcaf.mockapi.io/categories";
 // get categories
-axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
+axios.get('https://5df044e202b2d90014e1bcaf.mockapi.io/categories')
     .then(function (response) {
         // handle success
         // console.log(response);
@@ -12,7 +12,7 @@ axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
             return `<div class="categories-position">
                         <div class="categories-content">
                             <div class="categories-name">
-                                <h4><a class="categories-link" data-id="${category.id}" href="product.html" >${category.name}</a></h4>
+                                <h4><a class="categories-link" data-id="${category.id}" href="list-product.html" >${category.name}</a></h4>
                             </div>
                             <div class="categories-image">
                                 <img src="${category.image}">
@@ -23,7 +23,15 @@ axios.get('https://5dcf7e2d75f9360014c268b9.mockapi.io/categories')
                     `;
         }).join('');
 
+    const linkCategory = document.querySelectorAll('.categories-link');
 
+    for( let i = 0; i < linkCategory.length; i++){
+        linkCategory[i].addEventListener('click', function(){
+            const id = linkCategory[i].dataset.id;
+            // console.log(id);
+            localStorage.setItem('categoryId', id);
+        })
+    }
 
     })
     .catch(function (error) {
