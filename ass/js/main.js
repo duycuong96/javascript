@@ -201,6 +201,7 @@ function decrementCart(ev) {
 function getProducts(success, failure) {
     //request danh sách sản phẩm từ server
     let categoryId = localStorage.getItem("categoryId");
+    
     const URL = `https://5df044e202b2d90014e1bcaf.mockapi.io/categories/${categoryId}/products`;
     fetch(URL, {
         method: 'GET',
