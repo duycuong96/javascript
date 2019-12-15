@@ -255,7 +255,8 @@ function showProducts(product) {
 // show chi tiết sản phẩm
 function getProductDetail(){
     let proId = localStorage.getItem("id");
-    axios.get(`${API}/${proId}`)
+    let categoryId = localStorage.getItem("categoryId");
+    axios.get(`https://5df044e202b2d90014e1bcaf.mockapi.io/categories/${categoryId}/products/${proId}`)
     .then(function (response) {
         // handle success
         const { data } = response;
