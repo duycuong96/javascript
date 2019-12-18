@@ -45,7 +45,7 @@ axios.get('https://5df044e202b2d90014e1bcaf.mockapi.io/categories')
 // get 8 product latest 
 // get 8 product latest 
 let categoryId = localStorage.getItem("categoryId");
-axios.get(`http://5df044e202b2d90014e1bcaf.mockapi.io/categories/${categoryId}/products?page=1&limit=8`)
+axios.get(`https://5df044e202b2d90014e1bcaf.mockapi.io/categories/${categoryId}/products?page=1&limit=8`)
     .then(function (response) {
         // handle success
         const { data } = response;

@@ -386,6 +386,9 @@ footer .second ul li{
 .social i{
     color: #fff;
 }
+.products-image img{
+    width: 100%;
+}
 /* end footer  */
 @media only screen and (max-width : 992px){
     .main-header{
